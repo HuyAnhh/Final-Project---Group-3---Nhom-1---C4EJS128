@@ -29,9 +29,12 @@
             </div>
 
             <div class="login">
-                <a class="btn--login" href="login.html"
-                style="text-decoration: none;">ĐĂNG NHẬP</a>
-                <div>GIỎ HÀNG</div>
+                <a class="yourLogin" href="login.html"
+                style="text-decoration: none;
+                color: black">ĐĂNG NHẬP</a>
+                <span class="cashCart">GIỎ HÀNG</span>
+                <span class="cartLength"></span>
+                <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
             </div>
         </div>
 
@@ -44,11 +47,13 @@
             </div>
             <div class="menu-items">
                 <a href="vapePod.html"
-                style="text-decoration: none;">VAPE POD</a>
+                style="text-decoration: none;
+                color: #ffff">VAPE POD</a>
             </div>
             <div class="menu-items">
                 <a href="tinhDau.html"
-                style="text-decoration: none;">TINH DẦU</a>
+                style="text-decoration: none;
+                color: #ffff">TINH DẦU</a>
             </div>
             <div class="menu-items">
                 <a>PHỤ KIỆN</a>
@@ -105,7 +110,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Rincoe Jellybox Nano X Pod Kit</p>
                         <p><strong>đ650.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="pod1">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
                 <div class="content--items">
@@ -114,7 +119,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Smok Nfix Pod Kit 25W</p><br>
                         <p><strong>đ550.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="pod2">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
                 <div class="content--items">
@@ -123,7 +128,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Vinci Q Pod Kit by Voopoo</p><br>
                         <p><strong>đ650.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="pod3">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
                 <div class="content--items">
@@ -132,7 +137,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Smoant Charon Baby Plus 35W Pod Kit</p>
                         <p><strong>đ650.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="pod4">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
             </div>
@@ -150,7 +155,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Usalt E-Liquid Dưa Gang Lạnh 30ml 50mg</p>
                         <p><strong>đ320.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="juice1">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
                 <div class="content--items">
@@ -159,7 +164,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Usalt E-Liquid Xoài Lạnh 30ml 50mg</p>
                         <p><strong>đ320.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="juice2">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
                 <div class="content--items">
@@ -168,7 +173,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Usalt E-Liquid Dâu Lạnh 30ml 50mg</p>
                         <p><strong>đ320.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="juice3">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
                 <div class="content--items">
@@ -177,7 +182,7 @@
                     <div class="info--items">
                         <p style="color: rgb(17,115,200)">Usalt E-Liquid Táo Lạnh 30ml 50mg</p>
                         <p><strong>đ320.000đ</strong></p><br>
-                        <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                        <p class="btn--addCart" id="juice4">THÊM VÀO GIỎ HÀNG</p>
                     </div>
                 </div>
             </div>
@@ -233,5 +238,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<script src="index.js"></script>
 </body>
 </html>

@@ -13,6 +13,7 @@
     height: 130px;
     top: 0;
     bottom: 0;
+    z-index: 100;
 }
 
 .intro {
@@ -48,11 +49,11 @@
     width: 25%;
 }
 
-.btn--login {
+.Yourlogin {
     cursor:pointer;
 }
 
-.btn--login:hover {
+.Yourlogin:hover {
     background-color: red;
     color: black;
 }
@@ -220,6 +221,11 @@
     background-color: red;
     padding: 5px 20px;
     color:#ffff;
+}
+
+.error {
+    color: red;
+    display: none;
 }
 
 

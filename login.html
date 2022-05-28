@@ -29,7 +29,7 @@
             </div>
 
             <div class="login">
-                <div class="btn--login">ĐĂNG NHẬP</div>
+                <div class="yourLogin">ĐĂNG NHẬP</div>
                 <div>GIỎ HÀNG</div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="menu-items">
                 <a href="vapePod.html"
-                style="text-decoration: none;">VAPE POD</a>
+                style="text-decoration: none; color: #ffff">VAPE POD</a>
             </div>
             <div class="menu-items">
                 <a href="tinhDau.html"
@@ -66,14 +66,14 @@
 
         <div class="inputAccount">
             <h5>ĐĂNG NHẬP</h5>
-            <form>
+            <form class="yourInput">
                 <label>Tên tài khoản hoặc địa chỉ email*</label><br>
                 <input class="inputYourID" type="text"><br><br>
                 
 
                 <label>Mật khẩu*</label><br>
-                <input class="inputYourPass"><br>
-                <div class="error"></div><br>
+                <input class="inputYourPass" type="password"><br>
+                <div class="error">Mật Khẩu phải gồm 6 ký tự trở lên</div><br>
 
                 <button class="button--login">Đăng nhập</button>
             </form>
@@ -107,5 +107,6 @@
             <p>Đổi trả và bảo hành</p>
         </div>
     </div>
+    <script src="login.js"></script>
 </body>
 </html>
