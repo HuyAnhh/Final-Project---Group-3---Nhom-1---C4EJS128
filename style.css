@@ -8,7 +8,7 @@
 }
 
 .bar {
-    position:fixed;
+    position: fixed;
     width: 100%;
     height: 130px;
     top: 0;
@@ -31,6 +31,7 @@
 .input--search {
     width: 427.61px;
     height: 33.07px;
+    padding-left: 10px;
 }
 
 .btn--search {
@@ -38,12 +39,22 @@
     width: 34.05px;
     height: 33.06px;
     color: #ffff;
+    cursor:pointer;
 }
 
 .login {
     display:flex;
     justify-content: space-between;
     width: 25%;
+}
+
+.btn--login {
+    cursor:pointer;
+}
+
+.btn--login:hover {
+    background-color: red;
+    color: black;
 }
 
 .menu-bar {
@@ -56,6 +67,7 @@
 
 .menu-items {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .menu-items:hover {
@@ -84,6 +96,7 @@
 .btn--addCart {
     border: 1px solid red;
     color: red;
+    cursor:pointer;
 }
 
 .btn--addCart:hover {
@@ -102,6 +115,115 @@
 .content--footer {
     width: 30%;
 }
+
+.carousel {
+    margin-top: 110px;
+}
+
+.index--intro {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 50px;
+}
+
+.intro--vape {
+    background-image: url(https://thevape.vn/wp-content/uploads/2020/01/3-8.jpg);
+    background-size:cover;
+    height: 355px;
+    width: 30%;
+    text-align:center;
+    color:#ffff;
+    font-size: 1.5em;
+    padding-top: 20px;
+    cursor:pointer;
+}
+
+.intro--pod {
+    background-image: url(https://thevape.vn/wp-content/uploads/2020/01/1-10.jpg);
+    background-size:cover;
+    height: 355px;
+    width: 30%;
+    text-align:center;
+    color:#ffff;
+    font-size: 1.5em;
+    padding-top: 20px;
+    cursor:pointer;
+}
+
+.intro--juice {
+    background-image: url(https://thevape.vn/wp-content/uploads/2020/01/3-8.jpg);
+    background-size:cover;
+    height: 355px;
+    width: 30%;
+    text-align:center;
+    color:#ffff;
+    font-size: 1.5em;
+    padding-top: 20px;
+    cursor:pointer;
+}
+
+.header--products--podsystem,
+.header--products--juice {
+    text-align: center;
+    color: red;
+    border: 1px solid rgb(229,229,229);
+    margin: 50px 35%;
+    padding: 10px;
+}
+
+.content--products--podsystem,
+.content--products--juice {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 200px;
+}
+
+.links--follow {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 200px;
+}
+
+.content--follow {
+    width: 30%;
+}
+
+.follow--youtube,
+.follow--fb,
+.follow--insta {
+    height: 330px;
+}
+
+.container--account {
+    margin-top: 110px;
+}
+
+.header--account {
+    background-color: rgb(247,247,247);
+    text-align:center;
+    padding: 20px;
+
+}
+
+.inputAccount {
+    margin: 50px 200px;
+}
+
+.inputYourID,
+.inputYourPass {
+    width: 600px;
+    padding: 5px;
+}
+
+.button--login {
+    border: 1px solid black;
+    background-color: red;
+    padding: 5px 20px;
+    color:#ffff;
+}
+
+
+
 
 
 
