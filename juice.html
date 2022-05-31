@@ -29,26 +29,31 @@
             </div>
 
             <div class="login">
-                <a class="btn--login" href="login.html"
-                style="text-decoration: none;">ĐĂNG NHẬP</a>
-                <div>GIỎ HÀNG</div>
+                <a class="yourLogin" href="login.html"
+                style="text-decoration: none;
+                color: black">ĐĂNG NHẬP</a>
+                <span class="cashCart">GIỎ HÀNG</span>
+                
+                <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span><span class="cartLength"></span>
             </div>
         </div>
 
         <div class="menu-bar">
             <div class="menu-items">
-                <a href="index.html"
-                style="text-decoration: none;">TRANG CHỦ</a>
+                <a href="index.html" style="text-decoration: none; color:#ffff">TRANG CHỦ</a>
             </div>
             <div class="menu-items">
                 <a>BEST DEALS</a>
             </div>
             <div class="menu-items">
                 <a href="vapePod.html"
-                style="text-decoration: none;">VAPE POD</a>
+                style="text-decoration: none;
+                color: #ffff">VAPE POD</a>
             </div>
             <div class="menu-items">
-                <a>TINH DẦU</a>
+                <a href="juice.html"
+                style="text-decoration: none;
+                color: #ffff">TINH DẦU</a>
             </div>
             <div class="menu-items">
                 <a>PHỤ KIỆN</a>
@@ -76,7 +81,7 @@
                 <div class="info--items">
                     <p style="color: rgb(17,115,200)">Usalt E-Liquid Dưa Gang Lạnh 30ml 50mg</p>
                     <p><strong>đ320.000đ</strong></p><br>
-                    <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                    <p class="btn--addCart" id="juice1">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
             <div class="content--items">
@@ -85,7 +90,7 @@
                 <div class="info--items">
                     <p style="color: rgb(17,115,200)">Usalt E-Liquid Xoài Lạnh 30ml 50mg</p>
                     <p><strong>đ320.000đ</strong></p><br>
-                    <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                    <p class="btn--addCart" id="juice2">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
             <div class="content--items">
@@ -94,7 +99,7 @@
                 <div class="info--items">
                     <p style="color: rgb(17,115,200)">Usalt E-Liquid Dâu Lạnh 30ml 50mg</p>
                     <p><strong>đ320.000đ</strong></p><br>
-                    <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                    <p class="btn--addCart" id="juice3">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
             <div class="content--items">
@@ -103,9 +108,10 @@
                 <div class="info--items">
                     <p style="color: rgb(17,115,200)">Usalt E-Liquid Táo Lạnh 30ml 50mg</p>
                     <p><strong>đ320.000đ</strong></p><br>
-                    <p class="btn--addCart">THÊM VÀO GIỎ HÀNG</p>
+                    <p class="btn--addCart" id="juice4">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -136,5 +142,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="juice.js"></script>
 </body>
 </html>
