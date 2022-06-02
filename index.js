@@ -1,200 +1,102 @@
+// Thông tin đăng nhập
 let yourLogin = document.querySelector(".yourLogin")
-let cartLength = document.querySelector(".cartLength")
-let cashCart = document.querySelector(".cashCart")
 let getUserName = localStorage.getItem("UserName")
-let getCartLength = localStorage.getItem("CartLength")
-let getCashCart = JSON.parse(localStorage.getItem("CashCart"))
-let getCart = JSON.parse(localStorage.getItem("Cart"))
-
-
-
+let signout = document.querySelector(".signout")
 
 if (getUserName !== null) {
     yourLogin.innerText = "HELLO, " + getUserName;
+    yourLogin.href = "";
+    signout.style.display = "block"
+    signout.style.cursor = "pointer"
+    signout.addEventListener("click", () => {
+        let ask = confirm("Bạn muốn đăng xuất?");
+        if (ask) {
+            localStorage.removeItem("UserName");
+            window.location.href="index.html"
+        }
+    })
 }
-
-if (getCartLength !== null) {
-    cartLength.innerText = getCartLength;
-}
-
-if (getCashCart !== null) {
-    let sum = 0, i = 0
-    while ( i < getCashCart.length) {
-    sum += getCashCart[i];
-    ++i;    
-    }
-    cashCart.innerText = sum + " 000đ";
-}
+    
 
 
-const btnAddCartPod1 = document.getElementById("pod1")
-const btnAddCartPod2 = document.getElementById("pod2")
-const btnAddCartPod3 = document.getElementById("pod3")
-const btnAddCartPod4 = document.getElementById("pod4")
+// Lấy dữ liệu LocalStorage cho giỏ hàng
+let addCart = document.querySelectorAll(".btn--addCart")
+let cartLength = document.querySelector(".cartLength")
+let cashCart = document.querySelector(".cashCart")
+let getCart = JSON.parse(localStorage.getItem("Cart"))
+let getTotalCash = localStorage.getItem("Total Cash")
+let getCash = JSON.parse(localStorage.getItem("Cash"))
 
-const btnAddCartJuice1 = document.getElementById("juice1")
-const btnAddCartJuice2 = document.getElementById("juice2")
-const btnAddCartJuice3 = document.getElementById("juice3")
-const btnAddCartJuice4 = document.getElementById("juice4")
-
-
-
-let product = [
-    "Rincoe Jellybox Nano X Pod Kit",
-    "Smok Nfix Pod Kit 25W",
-    "Vinci Q Pod Kit by Voopoo",
-    "Smoant Charon Baby Plus 35W Pod Kit",
-    "Usalt E-Liquid Dưa Gang Lạnh 30ml 50mg",
-    "Usalt E-Liquid Xoài Lạnh 30ml 50mg",
-    "Usalt E-Liquid Dâu Lạnh 30ml 50mg",
-    "Usalt E-Liquid Táo Lạnh 30ml 50mg",
-]
-
-let cart = []
 if (getCart !== null) {
-    cart = getCart
+    cartLength.style.background = "red"
+    cartLength.innerText = getCart.length
+}
+
+if (getTotalCash !== null) {
+    cashCart.innerText = getTotalCash + ",000đ"
+}
+
+let getCartInfo = localStorage.getItem("Cart Info")
+let cartTable = document.querySelector(".cart--table")
+let addCartInfo = document.createElement("tbody")
+let cartInfo = getCartInfo
+
+addCartInfo.innerHTML = cartInfo
+cartTable.appendChild(addCartInfo)
+
+// Giỏ Hàng
+
+let shoppingCart = []
+if (getCart !== null) {
+    shoppingCart = getCart
 }
 
 
-let cashProducts = [
-    650.000,
-    550.000,
-    650.000,
-    650.000,
-    320.000,
-    320.000,
-    320.000,
-    320.000,
-]
-
-let cash = []
-if (getCashCart !== null) {
-    cash = getCashCart
+let shoppingCash = []
+if (getCash !== null) {
+    shoppingCash = getCash
 }
 
 
-btnAddCartPod1.addEventListener ("click", () => {
-    cart.push(product[0]);
-    cash.push(cashProducts[0]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
+
+addCart.forEach(function(button,index) {
+    button.addEventListener("click", (event) => {
+        let btnCart = event.target
+        let products = btnCart.parentElement
+        let infoProducts = products.parentElement
+        
+        let cartName = products.querySelector(".product").innerText
+        let cartCash = products.querySelector(".product--cash").innerText
+        let cartImg = infoProducts.querySelector("img").src
+        
+        addCartTable(cartName, cartCash, cartImg)
+
+        shoppingCart.push(cartName)
+        cartLength.innerText = shoppingCart.length
+        cartLength.style.background = "red"
+
+        shoppingCash.push(Number(cartCash))
+        let sum = 0 , i = 0
+        while (i < shoppingCash.length) {
+            sum += shoppingCash[i];
+            ++i;
+        }
+        let totalCash = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(sum);
+        cashCart.innerText = totalCash + ",000đ"
+
+        localStorage.setItem("Cart", JSON.stringify(shoppingCart))
+        localStorage.setItem("Cash", JSON.stringify(shoppingCash))
+        localStorage.setItem("Total Cash", totalCash)
+    })
 })
 
-btnAddCartPod2.addEventListener ("click", () => {
-    cart.push(product[1])
-    cash.push(cashProducts[1]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
+function addCartTable(cartName, cashCart, cartImg) {
+    let cartTable = document.querySelector("tbody")
+    let addTr = document.createElement("tr")
+    let trContent = '<td class="cart--img&name"><img class="cart--img" src="'+cartImg+'"><p class="cart--name">'+cartName+'</p></td><td class="cart--price">'+cashCart+'đ</td><td class="cart--amount">1</td><td class="cart--totalCash">'+cashCart+'</td>'
+    addTr.innerHTML = trContent
+    cartTable.appendChild(addTr) 
+    localStorage.setItem("Cart Info", cartTable.innerHTML)
+    getCartInfo += trContent  
 }
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-btnAddCartPod3.addEventListener ("click", () => {
-    cart.push(product[2])
-    cash.push(cashProducts[2]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-btnAddCartPod4.addEventListener ("click", () => {
-    cart.push(product[3])
-    cash.push(cashProducts[3]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-btnAddCartJuice1.addEventListener ("click", () => {
-    cart.push(product[4])
-    cash.push(cashProducts[4]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-btnAddCartJuice2.addEventListener ("click", () => {
-    cart.push(product[5])
-    cash.push(cashProducts[5]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-btnAddCartJuice3.addEventListener ("click", () => {
-    cart.push(product[6])
-    cash.push(cashProducts[6]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-btnAddCartJuice4.addEventListener ("click", () => {
-    cart.push(product[7])
-    cash.push(cashProducts[7]);
-    cartLength.innerText = cart.length
-    let sum = 0, i = 0
-    while ( i < cash.length) {
-    sum += cash[i];
-    ++i;
-}
-    cashCart.innerText = sum + " 000đ"
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    localStorage.setItem("CartLength", cart.length);
-    localStorage.setItem("CashCart", JSON.stringify(cash))
-})
-
-
-
-
-
 

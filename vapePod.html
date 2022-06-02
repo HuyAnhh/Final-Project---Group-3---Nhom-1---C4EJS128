@@ -29,18 +29,35 @@
             </div>
 
             <div class="login">
-                <a class="yourLogin" href="login.html"
-                style="text-decoration: none;
-                color: black">ĐĂNG NHẬP</a>
-                <span class="cashCart">GIỎ HÀNG</span>
-                
-                <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span><span class="cartLength"></span>
+                <div>
+                    <a class="yourLogin" href="login.html"
+                    style="text-decoration: none;
+                    color: black">ĐĂNG NHẬP</a>
+                </div>
+                <span>|</span>
+
+                <div>
+                    <a href="cart.html"
+                    style="text-decoration: none;
+                    color: black"
+                    target="_blank">
+                        <span>GIỎ HÀNG</span><span> / </span>
+                        <span class="cashCart"></span>
+                        <span><i  style="font-size: 20px;" class="fa fa-shopping-cart" aria-hidden="true"></i></span><span class="cartLength"></span>
+                    </a>
+                </div>
+
+                <div>
+                    <span class="signout"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 20px;"></i></span>
+                </div>
             </div>
         </div>
 
         <div class="menu-bar">
-            <div class="menu-items" >
-                <a href="index.html" style="text-decoration: none; color:#ffff">TRANG CHỦ</a>
+            <div class="menu-items">
+                <a href="index.html"
+                style="text-decoration: none;
+                color: #ffff">TRANG CHỦ</a>
             </div>
             <div class="menu-items">
                 <a>BEST DEALS</a>
@@ -83,8 +100,9 @@
                 <img src="https://thevape.vn/wp-content/uploads/2022/05/rincoe-jellybox-nano-x-pod-kit-thevape.png"
                 style="width: 247px; height: 247px">
                 <div class="info--items">
-                    <p style="color: rgb(17,115,200)">Rincoe Jellybox Nano X Pod Kit</p>
-                    <p><strong>đ650.000đ</strong></p><br>
+                    <p style="color: rgb(17,115,200)"
+                    class="product">Rincoe Jellybox Nano X Pod Kit</p>
+                    <span class="product--cash"><strong>650.000</strong></span><span><strong>đ</strong></span><br>
                     <p class="btn--addCart" id="pod1">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
@@ -92,8 +110,9 @@
                 <img src="https://thevape.vn/wp-content/uploads/2022/02/smok-nfix-pod-kit-25w-thevape.png"
                 style="width: 247px; height: 247px">
                 <div class="info--items">
-                    <p style="color: rgb(17,115,200)">Smok Nfix Pod Kit 25W</p><br>
-                    <p><strong>đ550.000đ</strong></p><br>
+                    <p style="color: rgb(17,115,200)"
+                    class="product">Smok Nfix Pod Kit 25W</p><br>
+                    <span class="product--cash"><strong>550.000</strong></span><span><strong>đ</strong></span><br>
                     <p class="btn--addCart" id="pod2">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
@@ -101,8 +120,9 @@
                 <img src="https://thevape.vn/wp-content/uploads/2022/02/voopoo-vinci-q-pod-kit-thevape.png"
                 style="width: 247px; height: 247px">
                 <div class="info--items">
-                    <p style="color: rgb(17,115,200)">Vinci Q Pod Kit by Voopoo</p><br>
-                    <p><strong>đ650.000đ</strong></p><br>
+                    <p style="color: rgb(17,115,200)"
+                    class="product">Vinci Q Pod Kit by Voopoo</p><br>
+                    <span class="product--cash"><strong>650.000</strong></span><span><strong>đ</strong></span><br>
                     <p class="btn--addCart" id="pod3">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
@@ -110,8 +130,9 @@
                 <img src="https://thevape.vn/wp-content/uploads/2022/02/smoant-charon-baby-plus-35w-pod-kit-thevape-600x600.png"
                 style="width: 247px; height: 247px">
                 <div class="info--items">
-                    <p style="color: rgb(17,115,200)">Smoant Charon Baby Plus 35W Pod Kit</p>
-                    <p><strong>đ650.000đ</strong></p><br>
+                    <p style="color: rgb(17,115,200)"
+                    class="product">Smoant Charon Baby Plus 35W Pod Kit</p>
+                    <span class="product--cash"><strong>650.000</strong></span><span><strong>đ</strong></span><br>
                     <p class="btn--addCart" id="pod4">THÊM VÀO GIỎ HÀNG</p>
                 </div>
             </div>
@@ -144,8 +165,21 @@
         </div>
     </div>
 
+    <div class="shoppingCart">
+        <table class="cart--table">
+            <thead class="cart--table--head">
+                <tr class="cart--title">
+                    <th class="cart--title--name">Sản phẩm</th>
+                    <th class="cart--title--name">Giá</th>
+                    <th class="cart--title--name">Số lượng</th>
+                    <th class="cart--title--name">Tạm tính</th>
+                <tr>
+            </thead>
+        </table>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     
-    <script src="vapePod.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

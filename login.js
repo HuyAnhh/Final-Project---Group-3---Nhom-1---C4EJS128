@@ -36,29 +36,26 @@ yourInput.addEventListener ("submit", (event) => {
         }
 })
 
-// let yourLogin = document.querySelector(".yourLogin")
+
+let getUserName = localStorage.getItem("UserName")
+if (getUserName !== null) {
+    yourLogin.innerText = "Hello, " + getUserName;
+}
+
+let addCart = document.querySelectorAll(".btn--addCart")
 let cartLength = document.querySelector(".cartLength")
 let cashCart = document.querySelector(".cashCart")
-let getUserName = localStorage.getItem("UserName")
-let getCartLength = localStorage.getItem("CartLength")
-let getCashCart = JSON.parse(localStorage.getItem("CashCart"))
 let getCart = JSON.parse(localStorage.getItem("Cart"))
+let getTotalCash = localStorage.getItem("Total Cash")
+let getCash = JSON.parse(localStorage.getItem("Cash"))
 
-if (getUserName !== null) {
-    yourLogin.innerText = "HELLO, " + getUserName;
+if (getCart !== null) {
+    cartLength.style.background = "red"
+    cartLength.innerText = getCart.length
 }
 
-if (getCartLength !== null) {
-    cartLength.innerText = getCartLength;
-}
-
-if (getCashCart !== null) {
-    let sum = 0, i = 0
-    while ( i < getCashCart.length) {
-    sum += getCashCart[i];
-    ++i;    
-    }
-    cashCart.innerText = sum + " 000đ";
+if (getTotalCash !== null) {
+    cashCart.innerText = getTotalCash + ",000đ"
 }
 
 
