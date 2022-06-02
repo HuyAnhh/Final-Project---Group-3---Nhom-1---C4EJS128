@@ -93,10 +93,23 @@ addCart.forEach(function(button,index) {
 function addCartTable(cartName, cashCart, cartImg) {
     let cartTable = document.querySelector("tbody")
     let addTr = document.createElement("tr")
+
+    let cartItems = document.querySelectorAll("tbody tr")
+
+    for (let i = 0 ; i < cartItems.length ; i++) {
+        let nameOfCart = document.querySelectorAll(".cart--name")
+        if (nameOfCart[i].innerHTML == cartName) {
+            let sameCart = (nameOfCart[i].parentElement).parentElement;
+            let cartAmount = Number(sameCart.querySelector(".cart--amount").innerText)
+            sameCart.querySelector(".cart--amount").innerText = cartAmount + 1
+            localStorage.setItem("Cart Info", cartTable.innerHTML)
+            return;
+        }
+    } 
     let trContent = '<td class="cart--img&name"><img class="cart--img" src="'+cartImg+'"><p class="cart--name">'+cartName+'</p></td><td class="cart--price">'+cashCart+'đ</td><td class="cart--amount">1</td><td class="cart--totalCash">'+cashCart+'</td>'
     addTr.innerHTML = trContent
     cartTable.appendChild(addTr) 
+
     localStorage.setItem("Cart Info", cartTable.innerHTML)
-    getCartInfo += trContent  
 }
 
