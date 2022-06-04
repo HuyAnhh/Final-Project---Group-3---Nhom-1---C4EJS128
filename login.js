@@ -50,21 +50,18 @@ let shoppingCartTotalCash = document.querySelector(".cashCart")
 let getCartAmount = localStorage.getItem("Cart Amount") 
 let getCartTotalCash = localStorage.getItem("Cart Total Cash")
 
-if (getCartAmount === "0") {
-    shoppingCartLength.style.background = "red"
+if (getCartAmount == null) {
     shoppingCartLength.innerText = getCartAmount
-    
-    shoppingCart.style.display = "none"
 }else {
-    
     shoppingCartLength.style.background = "red"
     shoppingCartLength.innerText = getCartAmount
 }
 
-if (getCartTotalCash !== "0") {
+if (getCartTotalCash !== null) {
     shoppingCartTotalCash.innerText = getCartTotalCash
-    shoppingTotalCash.innerText = " " + getCartTotalCash
+    shoppingCartTotalCash.innerText = " " + getCartTotalCash
 }
+
 
 
 
