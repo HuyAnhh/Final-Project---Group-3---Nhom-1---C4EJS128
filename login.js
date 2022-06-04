@@ -43,19 +43,27 @@ if (getUserName !== null) {
 }
 
 let addCart = document.querySelectorAll(".btn--addCart")
-let cartLength = document.querySelector(".cartLength")
-let cashCart = document.querySelector(".cashCart")
-let getCart = JSON.parse(localStorage.getItem("Cart"))
-let getTotalCash = localStorage.getItem("Total Cash")
-let getCash = JSON.parse(localStorage.getItem("Cash"))
+let shoppingCart = document.querySelector(".shopping--cart")
+let shoppingTotalCash = document.querySelector(".shopping--totalCash")
+let shoppingCartLength = document.querySelector(".cartLength")
+let shoppingCartTotalCash = document.querySelector(".cashCart")
+let getCartAmount = localStorage.getItem("Cart Amount") 
+let getCartTotalCash = localStorage.getItem("Cart Total Cash")
 
-if (getCart !== null) {
-    cartLength.style.background = "red"
-    cartLength.innerText = getCart.length
+if (getCartAmount === "0") {
+    shoppingCartLength.style.background = "red"
+    shoppingCartLength.innerText = getCartAmount
+    
+    shoppingCart.style.display = "none"
+}else {
+    
+    shoppingCartLength.style.background = "red"
+    shoppingCartLength.innerText = getCartAmount
 }
 
-if (getTotalCash !== null) {
-    cashCart.innerText = getTotalCash + ",000đ"
+if (getCartTotalCash !== "0") {
+    shoppingCartTotalCash.innerText = getCartTotalCash
+    shoppingTotalCash.innerText = " " + getCartTotalCash
 }
 
 

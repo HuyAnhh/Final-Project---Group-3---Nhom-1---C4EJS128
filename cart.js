@@ -22,19 +22,26 @@ let cartEmpty = document.querySelector(".cart--empty")
 let shoppingCartLength = document.querySelector(".cartLength")
 let shoppingCartTotalCash = document.querySelector(".cashCart")
 let getCartAmount = localStorage.getItem("Cart Amount") 
+
 let getCartTotalCash = localStorage.getItem("Cart Total Cash")
 let shoppingCart = document.querySelector(".shopping--cart")
 let shoppingTotalCash = document.querySelector(".shopping--totalCash")
 
-if (getCartAmount !== null) {
+
+// shoppingCartLength.innerText = getCartAmount
+// shoppingCartTotalCash.innerText = getCartTotalCash
+if (getCartAmount === "0") {
     shoppingCartLength.style.background = "red"
     shoppingCartLength.innerText = getCartAmount
-    shoppingCart.style.display = "block"
-}else {
     cartEmpty.style.display = "block"
+    shoppingCart.style.display = "none"
+}else {
+    shoppingCart.style.display = "block"
+    shoppingCartLength.style.background = "red"
+    shoppingCartLength.innerText = getCartAmount
 }
 
-if (getCartTotalCash !== null) {
+if (getCartTotalCash !== "0") {
     shoppingCartTotalCash.innerText = getCartTotalCash
     shoppingTotalCash.innerText = " " + getCartTotalCash
 }
@@ -82,9 +89,14 @@ reduceCart.forEach(function(button,index) {
             }
 
             if (sumAmount == 0) {
+                shoppingCartLength.innerText = ""
+                shoppingTotalCash.innerText = ""
                 shoppingCartLength.style.background = "none"
                 shoppingCart.style.display = "none"
                 cartEmpty.style.display = "block"
+                localStorage.removeItem("Cart Amount")
+                localStorage.removeItem("Cart Total Cash")
+                
             }
 
             let setTbody = document.querySelector("tbody")

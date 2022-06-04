@@ -27,16 +27,29 @@ let getCartAmount = localStorage.getItem("Cart Amount")
 let getCartTotalCash = localStorage.getItem("Cart Total Cash")
 let getCash = JSON.parse(localStorage.getItem("Cash"))
 
-shoppingCartLength.innerText = getCartAmount
-shoppingCartTotalCash.innerText = getCartTotalCash
+
+if (getCartAmount === "0") {
+    shoppingCartLength.style.background = "red"
+    shoppingCartLength.innerText = getCartAmount
+    
+    shoppingCart.style.display = "none"
+}else {
+    
+    shoppingCartLength.style.background = "red"
+    shoppingCartLength.innerText = getCartAmount
+}
+
+if (getCartTotalCash !== "0") {
+    shoppingCartTotalCash.innerText = getCartTotalCash
+    
+}
+
+
+
 
 let getCartInfo = localStorage.getItem("Cart Info")
 
-if (getCartInfo !== null) {
-    shoppingCartLength.style.background = "red"
-} else {
-    shoppingCartLength.style.background = "none"
-}
+
 
 let cartTable = document.querySelector(".cart--table")
 let addCartInfo = document.createElement("tbody")
