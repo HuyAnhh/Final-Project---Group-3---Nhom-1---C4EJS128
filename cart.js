@@ -25,13 +25,13 @@ let getCartAmount = localStorage.getItem("Cart Amount")
 
 let getCartTotalCash = localStorage.getItem("Cart Total Cash")
 let shoppingCart = document.querySelector(".shopping--cart")
+
 let shoppingTotalCash = document.querySelector(".shopping--totalCash")
 
 
 // shoppingCartLength.innerText = getCartAmount
 // shoppingCartTotalCash.innerText = getCartTotalCash
-if (getCartAmount === "0") {
-    shoppingCartLength.style.background = "red"
+if (getCartAmount == null) {
     shoppingCartLength.innerText = getCartAmount
     cartEmpty.style.display = "block"
     shoppingCart.style.display = "none"
@@ -50,12 +50,19 @@ if (getCartTotalCash !== "0") {
 
 let getCartInfo = localStorage.getItem("Cart Info")
 
+
 let cartTable = document.querySelector(".cart--table")
 let addCartInfo = document.createElement("tbody")
-let cartInfo = getCartInfo
 
-addCartInfo.innerHTML = cartInfo
-cartTable.appendChild(addCartInfo)
+if (getCartInfo !== null) {
+    let cartInfo = getCartInfo
+    addCartInfo.innerHTML = cartInfo
+    cartTable.appendChild(addCartInfo)
+}else {
+    cartEmpty.style.display = "block"
+    shoppingCart.style.display = "none"
+}
+
 
 let reduceCart = document.querySelectorAll(".btn--reduceCart")
 reduceCart.forEach(function(button,index) {
@@ -63,6 +70,7 @@ reduceCart.forEach(function(button,index) {
         let btnReduceCart = event.target
         let changeCartAmount = ((btnReduceCart.parentElement).parentElement).querySelector(".cart--amount")
         let cartProduct = (changeCartAmount.parentElement).parentElement
+        
         let changeCartTotalCash = cartProduct.querySelector(".cart--totalCash")
         let changeCartCash = cartProduct.querySelector(".cart--price")
         let cartAmount = Number(changeCartAmount.innerText)
@@ -94,6 +102,8 @@ reduceCart.forEach(function(button,index) {
                 shoppingCartLength.style.background = "none"
                 shoppingCart.style.display = "none"
                 cartEmpty.style.display = "block"
+                shoppingCart.remove()
+                localStorage.removeItem("Cart Info")
                 localStorage.removeItem("Cart Amount")
                 localStorage.removeItem("Cart Total Cash")
                 

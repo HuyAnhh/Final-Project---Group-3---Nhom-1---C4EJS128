@@ -28,20 +28,16 @@ let getCartTotalCash = localStorage.getItem("Cart Total Cash")
 let getCash = JSON.parse(localStorage.getItem("Cash"))
 
 
-if (getCartAmount === "0") {
-    shoppingCartLength.style.background = "red"
+if (getCartAmount == null) {
     shoppingCartLength.innerText = getCartAmount
-    
-    shoppingCart.style.display = "none"
 }else {
-    
     shoppingCartLength.style.background = "red"
     shoppingCartLength.innerText = getCartAmount
 }
 
-if (getCartTotalCash !== "0") {
+if (getCartTotalCash !== null) {
     shoppingCartTotalCash.innerText = getCartTotalCash
-    
+    shoppingCartTotalCash.innerText = " " + getCartTotalCash
 }
 
 
